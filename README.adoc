@@ -1,0 +1,9 @@
+[source]
+----
+keytool -genkeypair -alias jwt -keyalg RSA -dname "CN=jwt, L=Dapeng, S=Liu, C=SG" -keypass mySecretKey -keystore jwt.jks -storepass mySecretKey
+
+http://localhost:8080/oauth/authorize?client_id=1&response_type=code&redirect_uri=http://example.com/
+
+curl -X POST 'http://localhost:8080/oauth/token?client_id=1&client_secret=helloworld1&grant_type=authorization_code&code=sN4EPT&redirect_uri=http%3A%2F%2Fexample.com%2F' -u '1:helloworld1'
+
+----

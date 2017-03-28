@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Approval</title>
+</head>
+<body>
+
+<h1>Approval</h1>
+
+<p>Do you authorize <span th:text="${authorizationRequest.clientId}" /> to access your protected resources?</p>
+
+<form th:action="@{/oauth/authorize}" method="post" style="display: inline">
+    <input name='user_oauth_approval' value='true' type='hidden'/>
+    <input name='authorize' value='Authorize' type='submit'/>
+</form>
+
+<form th:action="@{/oauth/authorize}" method="post" style="display: inline">
+    <input name='user_oauth_approval' value='false' type='hidden'/>
+    <input name='deny' value='Deny' type='submit'/>
+</form>
+
+</body>
+</html>
